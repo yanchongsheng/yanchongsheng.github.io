@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="有才的博客">
 <meta property="og:description" content="1、在 Linux 中，umask 的默认值为 022，用来定义默认新建文件的缺省权限。直接执行 umask 命令会得到一个 4 位的数字：0022 第一个 0 表示特殊权限，022 代表正常的权限，其实 022 是权限掩码，真正的缺省权限是 777-022=755 即默认的权限 rwxr-xr-x。 注意：在 Linux 权限管理有一个最基本的定义：缺省创建的文件是不能具有可执行权限的。在 Li">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-28T09:28:56.996Z">
+<meta property="og:updated_time" content="2018-10-11T02:45:21.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 入门总结(五)">
 <meta name="twitter:description" content="1、在 Linux 中，umask 的默认值为 022，用来定义默认新建文件的缺省权限。直接执行 umask 命令会得到一个 4 位的数字：0022 第一个 0 表示特殊权限，022 代表正常的权限，其实 022 是权限掩码，真正的缺省权限是 777-022=755 即默认的权限 rwxr-xr-x。 注意：在 Linux 权限管理有一个最基本的定义：缺省创建的文件是不能具有可执行权限的。在 Li">
@@ -431,7 +431,7 @@
                           <span class="post-meta-item-text">字数统计</span>
                         
                         <span title="字数统计">
-                          1,298
+                          1,339
                         </span>
                       
 
@@ -500,6 +500,7 @@
 <p>13、内核中，对应于每个进程都有一个文件描述符表，表示这个进程打开的所有文件。文件描述表中每一项都是一个指针，指向一个用于描述打开的文件的数据块———file 对象，file 对象中描述了文件的打开模式，读写位置等重要信息，当进程打开一个文件时，内核就会创建一个新的 file 对象。需要注意的是，file 对象不是专属于某个进程的，不同进程的文件描述符表中的指针可以指向相同的 file 对象，从而共享这个打开的文件。file 对象有引用计数，记录了引用这个对象的文件描述符个数，只有当引用计数为 0 时，内核才销毁 file 对象，因此某个进程关闭文件，不影响与之共享同一个 file 对象的进程。</p>
 <p>14、查找当前目录不包括子目录命令：<code>find . -name &quot;*.c&quot; -maxdepth 1</code>。最大深度为 1，表示当前目录。如果为 0，则表示只对命令行参数有效。</p>
 <p>注意：符号「&gt;」是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空；</p>
+<p>可以把一块网卡设置多个IP地址，eg：eth0:1表示加了一个虚拟网卡，意思是给网卡绑定多一个IP地址。</p>
 <p>7、<br>wc -l        # 统计行数<br>wc -w      # 统计单词数量</p>
 
       
@@ -534,7 +535,7 @@
   <p><span>本文标题:</span><a href="/2018/09/19/Linux入门总结(五)/">Linux 入门总结(五)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yan ChongSheng 的个人博客">Yan ChongSheng</a></p>
   <p><span>发布时间:</span>2018年09月19日</p>
-  <p><span>最后更新:</span>2018年09月28日</p>
+  <p><span>最后更新:</span>2018年10月11日</p>
   <p><span>原始链接:</span><a href="/2018/09/19/Linux入门总结(五)/" title="Linux 入门总结(五)">yanchongsheng.github.io/2018/09/19/Linux入门总结(五)/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="yanchongsheng.github.io/2018/09/19/Linux入门总结(五)/"  aria-label="复制成功！"></i></span>
   </p>
@@ -731,7 +732,7 @@ var jiathis_config={
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -859,7 +860,7 @@ var jiathis_config={
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart" aria-hidden="true"></i>
@@ -889,7 +890,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <i class="fa fa-paint-brush" aria-hidden="true"></i>
-  <span class="post-count">博客全站共 73.6k 字</span>
+  <span class="post-count">博客全站共 83.4k 字</span>
 </div>
 
 
