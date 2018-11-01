@@ -112,27 +112,21 @@
 
 
 
-<meta name="description" content="Linux 入门总结(四) —— Vim 编辑器">
+<meta name="description" content="Linux 入门总结(四) —— Linux 常用命令">
 <meta name="keywords" content="Linux 基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 入门总结(四)">
 <meta property="og:url" content="yanchongsheng.github.io/2018/09/17/Linux入门总结(四)/index.html">
 <meta property="og:site_name" content="有才的博客">
-<meta property="og:description" content="Linux 入门总结(四) —— Vim 编辑器">
+<meta property="og:description" content="Linux 入门总结(四) —— Linux 常用命令">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="/upload_image/Vim_Model.png">
-<meta property="og:image" content="/upload_image/Insert_Command.png">
-<meta property="og:image" content="/upload_image/Position_Command.png">
-<meta property="og:image" content="/upload_image/Delete_Command.png">
-<meta property="og:image" content="/upload_image/Copy_Move_Command.png">
-<meta property="og:image" content="/upload_image/Replace_Cancel_Command.png">
-<meta property="og:image" content="/upload_image/Explore_Replace_Command.png">
-<meta property="og:image" content="/upload_image/Save_Exit_Command.png">
-<meta property="og:updated_time" content="2018-09-20T12:30:39.808Z">
+<meta property="og:image" content="/upload_image/ls_Analyse_Result.png">
+<meta property="og:image" content="/upload_image/File_Directories_Permission.png">
+<meta property="og:updated_time" content="2018-10-26T02:34:31.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 入门总结(四)">
-<meta name="twitter:description" content="Linux 入门总结(四) —— Vim 编辑器">
-<meta name="twitter:image" content="/upload_image/Vim_Model.png">
+<meta name="twitter:description" content="Linux 入门总结(四) —— Linux 常用命令">
+<meta name="twitter:image" content="/upload_image/ls_Analyse_Result.png">
 
 
 
@@ -405,9 +399,6 @@
             </span>
           
 
-          
-            
-          
 
           
           
@@ -440,7 +431,7 @@
                           <span class="post-meta-item-text">字数统计</span>
                         
                         <span title="字数统计">
-                          1,067
+                          6,942
                         </span>
                       
 
@@ -456,7 +447,7 @@
                           <span class="post-meta-item-text">阅读时长 &asymp;</span>
                         
                         <span title="阅读时长">
-                          4
+                          26
                         </span>
                       
 
@@ -477,30 +468,102 @@
       
 
       
-        <blockquote class="blockquote-center"> Linux 入门总结(四) —— Vim 编辑器 </blockquote>
+        <blockquote class="blockquote-center"> Linux 入门总结(四) —— Linux 常用命令 </blockquote>
 
 <a id="more"></a>
-<h2 id="Vim-简介"><a href="#Vim-简介" class="headerlink" title="Vim 简介"></a>Vim 简介</h2><hr>
-<p>Vim 有三种命令模式。可以使用 vim 加上任何一个已经存在或者你想创建的文件名就可以进入 Vim 默认的命令模式。vi 和 vim 都是命令，两个的效果一模一样，一个是早期的一个是 Vi 的增强版（全名 Vi imporove 简称 Vim） 。Vim 命令默认进入的是命令模式，在该模式下，你敲的任何一个字符系统都会当成命令来处理。要想进入文本的插入模式，你需要输入插入命令，比较常用的有 i、a、o 就会进入到插入模式，要想退出插入模式，则可以使用 Esc 键，表示退出插入模式，但是此时进入到的是命令模式，此时你输入的任何内容都会被当成命令。在命令模式里面按「：」冒号就会进入到编辑模式，此时输入的就是编辑模式的命令了，即你输入的内容都会被当成是编辑模式的命令。比如设置行号命令：set number（简写：set nu）。编辑模式的命令执行完成以后它会自动的回到命令模式，所以冒号后面输入的内容才是编辑模式的命令。保存退出命令模式：「:wq」。</p>
-<p><img src="/upload_image/Vim_Model.png" alt="Vim 工作模式" title="Vim 工作模式"></p>
-<h2 id="命令模式和编辑模式常用命令"><a href="#命令模式和编辑模式常用命令" class="headerlink" title="命令模式和编辑模式常用命令"></a>命令模式和编辑模式常用命令</h2><hr>
-<p><img src="/upload_image/Insert_Command.png" alt="插入命令" title="插入命令"><br>注意：在使用小 a 的时候光标会自动往后跳一格，例如：we 光标现在在 w 上，按  a以后光标自动跳到 e 上，然后在 e 的前面插入，实际上就是在 w 的后面插入。</p>
-<p><img src="/upload_image/Position_Command.png" alt="定位命令" title="定位命令"><br>注意：上图中前面有冒号的表示编辑模式命令，没有冒号的表示命令模式命令。</p>
-<p><img src="/upload_image/Delete_Command.png" alt="删除命令" title="删除命令"></p>
-<p><img src="/upload_image/Copy_Move_Command.png" alt="复制和剪切命令" title="复制和剪切命令"></p>
-<p><img src="/upload_image/Replace_Cancel_Command.png" alt="替换和取消命令" title="替换和取消命令"></p>
-<p><img src="/upload_image/Explore_Replace_Command.png" alt="搜索和搜索替换命令" title="搜索和搜索替换命令"><br>Linux 中的查找是严格区分大小写的，但是我们可以设置忽略大小写。<br>「:%s 表示全局替换」「g 表示替换的时候不询问」「c表示替换的时候要询问」</p>
-<p><img src="/upload_image/Save_Exit_Command.png" alt="保存和退出命令" title="保存和退出命令"></p>
-<h2 id="Vim-使用技巧"><a href="#Vim-使用技巧" class="headerlink" title="Vim 使用技巧"></a>Vim 使用技巧</h2><hr>
-<p>「:r 文件名」可以导入一个文件的内容到当前 vim 编辑的文件之中。eg：「:r /etc/issue」导入的位置为刚才你光标所在的位置。</p>
-<p>「:!命令」可以在不退出 vim 的情况下，执行系统响应的操作命令。eg：「:!which ls」</p>
-<p>「:r!命令」将一个命令的执行结果导入到当前的 vim 文件里面。eg：「:r!date」</p>
-<p>自定义快捷键「:map 快捷键 触发命令」。eg：「:map ^p I#<esc>」^p 表示 ctrl + p 的快捷键，该快捷键代表的命令是：跳到行首并进入插入模式，插入 # 号，然后退出。eg：「:map ^b 0x」表示用快捷键 ctrl + b 表示删除行首字母。</esc></p>
-<p>注意：设置快捷键的方式是，使用 ctrl + v + 所需字母；或者先按 ctrl + v，再按 ctrl + 所需字母，效果是一样的。这种是构造 ctrl + 字母的快捷键的方法。</p>
-<p>连续行注释：「n1,n2s/^/#/g」表示从 n1 行开始到 n2 行，每行的行首都增加 # 号，并且替换的时候不询问。<br>去掉连续行注释：「n1,n2s/^#//g」表示从 n1 行开始到 n2 行，每行的行首的 # 号都替换为空，并且替换的时候不询问。<br>如果注释符是「//」则需要转义：「:n1,n2s/^/\/\//g」表示从 n1 行开始到 n2 行，每行的行首都增加 // 号，并且替换的时候不询问。<br>注意：「^」表示行首的意思。注意：在 Linux 中「\/」中「\」表示转义符的意思「/」它才是真正的符号。</p>
-<p>替换命令：「:ab 旧内容 新内容」即「:ab a b」这个命令可以简单的理解为：当你输入 a，它会自动的帮你转换成 b。eg: 「:ab sb hello」 当前输入 sb 的时候，会自动的替换成 hello。</p>
-<p>注意：以上定义的快捷键重启以后都不存在，要想永久生效，你需要将其定义在每个用户的宿主（家）目录中的配置文件里面。以 root 为例：vi /root/.vimrc (注意这个配置文件叫 .vimrc)这里面只能放一些<strong>编辑模式</strong>的命令：比如设置行号、设置快捷键、ab 命令（前面可以没有冒号「:」）。</p>
-<h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href=""></a></p>
+<h2 id="目录处理命令"><a href="#目录处理命令" class="headerlink" title="目录处理命令"></a>目录处理命令</h2><p>1、命令格式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">命令格式：</span><br><span class="line">    命令 [-选项] [参数]</span><br><span class="line"></span><br><span class="line">说明：</span><br><span class="line">    1. 个别命令使用不遵循此格式</span><br><span class="line">    2. 当有多个选项时，可以写在一起</span><br><span class="line">    3. 简化选项与完整选项，eg：-a 等于 --all</span><br></pre></td></tr></table></figure></p>
+<p>关于选项：在大多数的命令中，选项前面会有一个小横杆，用来标记这是一个选项；选项的作用：使用命令的时候用来做不同的操作，使命令结果呈现不同的形式或者信息内容，就可以加上不同的选项来实现，即选项是用来调整命令功能的。我们使用的选项都是简化选项，完整选项需要两个「-」 来调用，选项的顺序一般都是可以调整的。[] 里的内容是选择性加入的。加了选项是调整功能，加了参数是指定操作对象。</p>
+<p>2、目录处理命令 ls<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 list；命令所在路径：/bin/ls；作用：显示目录文件</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    ls [选项] [文件或目录]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -a  a 表示 all</span><br><span class="line">    -l  l 表示 long</span><br><span class="line">    -d  d 表示 directory，显示当前目录本身，而不显示目录下的数据</span><br><span class="line">    -h  h 表示 human，人性化显示文件大小</span><br><span class="line">    -i  i 表示 iNode，显示 i 结点号</span><br></pre></td></tr></table></figure></p>
+<p>在 Linux 中，以「.」开头的是隐藏文件。隐藏文件的初衷是为了告诉用户这是一个系统文件，没有特殊情况一般不要修改它。在 Linux 中要想把一个文件隐藏，则需要给它改名，改成以点开头的文件名即可隐藏。</p>
+<p>3、ls -l 显示结果分析<br><img src="/upload_image/ls_Analyse_Result.png" alt="ls -l" title="ls -l"></p>
+<ol>
+<li>x 表示执行权限，是 execute 的缩写；可执行文件 .exe 的缩写也来源于这个单词。</li>
+<li>引用计数，代表这个文件曾经被引用或者调用过几次。这个引用计数对文件和目录来讲只在硬链接中才有作用。</li>
+<li>文件大小默认单位是字节。可以使用 -h 选项来调整。</li>
+<li>上图中的时间表示该文件最后被修改的时间；如果没有被修改过，则就是它的创建时间。需要注意的是 Linux 中没有创建时间这个概念，它只有文件的最后一次访问时间，文件的状态修改时间，文件的数据修改时间这三个时间。</li>
+<li>i 节点，在 Linux 系统中每个文件或者目录都有它自己的一个唯一标识编号，系统靠这个 i 节点号搜索或者查找文件或者目录。</li>
+</ol>
+<p>4、目录处理命令 mkdir<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 make directories；命令所在路径：/bin/mkdir；作用：创建新目录</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    mkdir [选项] 目录名</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -p  p 表示 parents，如果新创建的目录的父目录不存在，则自动递归创建父目录</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 可同时创建多个目录，多个目录之间以空格进行分割</span><br><span class="line">    mkdir /tmp/test1 /tmp/test2 /tmp/test3</span><br></pre></td></tr></table></figure></p>
+<p>目录在 windows 中又称为文件夹。不要轻易在根目录下创建新的目录或者文件。可以在 /tmp 目录下进行练习，该目录是用来存放临时文件的。</p>
+<p>5、目录处理命令 cd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 change directory；命令所在路径：shell 内置命令；作用：切换目录</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    cd [目录]</span><br></pre></td></tr></table></figure></p>
+<p>「.」 表示当前目录，「..」表示当期目录的上一级目录。</p>
+<p>注意：在 Dos 窗口下 cd.. 中间是可以不加空格的，但是在 Linux 中，中间必须有空格。</p>
+<p>6、目录处理命令 pwd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 print working directory；命令所在路径：/bin/pwd；作用：显示当前所在目录的绝对路径</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    pwd</span><br></pre></td></tr></table></figure></p>
+<p>7、目录处理命令 rmdir<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 remove empty directories；命令所在路径：/bin/rmdir；作用：删除空目录</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    rmdir [空目录]</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 可同时删除多个空目录，多个空目录之间以空格进行分割</span><br><span class="line">    rmdir /tmp/test1 /tmp/test2 /tmp/test3</span><br></pre></td></tr></table></figure></p>
+<p>注意：rmdir 只能删除空的目录！！！要想使用 rmdir 删除目录，必须先把该目录下的所有子目录和文件都删除掉，才可以使用。实际操作中此命令用的并不是很多。</p>
+<p>8、目录处理命令 cp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 copy；命令所在路径：/bin/cp；作用：复制文件或目录</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    cp [选项] [原文件或目录] [目标目录]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -r  复制目录，copy directories recursively</span><br><span class="line">    -p  保留文件属性，same as --preserve=mode,ownership,timestamps</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 将 /tmp 下 test1、test2、test3 目录一次性复制到 /root 下，并保持目录属性</span><br><span class="line">    cp -rp /tmp/test1 /tmp/test2 /tmp/test3 /root</span><br></pre></td></tr></table></figure></p>
+<p>在 cp 复制文件的时候是不需要加选项的；但是要复制目录的话要增加选项 -r；cp 可以同时复制多个文件或者目录。</p>
+<p>当把一个文件或目录复制到另一个地方的时候，相当于在另一个地方创建了一个新的文件或目录，所以复制出来的文件或目录的最后更改时间就是当前时间。如果希望复制出来的文件或目录的最后更改时间跟源文件一样，则使用 -p 选项。</p>
+<p>在 Linux 中，复制文件或者目录的同时，可以更改目录或者文件的名字。</p>
+<p>9、目录处理命令 mv<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 move；命令所在路径：/bin/mv；作用：剪切文件、改名</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    mv [原文件或目录] [目标目录]</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # /tmp 下 test1、test2、test3 目录一次性剪切到 /root 目录</span><br><span class="line">    # 当一次剪切多个目录或文件的时候就不能改名了，改名操作只支持一次一个，不支持一次多个文件或目录进行改名</span><br><span class="line">    mv /tmp/test1 /tmp/test2 /tmp/test3 /root</span><br><span class="line">改名：</span><br><span class="line">    mv 要改名的文件名 新的文件名</span><br></pre></td></tr></table></figure></p>
+<p>在 Linux 中剪切和改名是同一个命令。在执行复制剪切等命令的时候，如果你的位置是在当前目录的话，可以省略绝对路径，但是在不清楚当前目录的情况下要写绝对路径。mv 命令是不需要加 -r 选项的，直接使用 mv 可以同时剪切一个或多个目录或者文件的，而且在剪切的同时可以改名。</p>
+<p>10、目录处理命令 rm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 remove；命令所在路径：/bin/rm；作用：删除文件或目录</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    rm [选项] [文件或目录]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -r  删除目录，recursive</span><br><span class="line">    -f  强制删除，force</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 同时删除目录 test1 test2 文件 h1.txt h2.txt</span><br><span class="line">    rm -rf test1 test2 h1.txt h2.txt</span><br></pre></td></tr></table></figure></p>
+<p>注意：Linux 中是没有回收站这一说的，文件一旦删除，就没有了。</p>
+<p>在删除文件的时候每次都会询问你是否删除，如果你不想有这个提示的话，则可以加 -f 选项。</p>
+<p>小结：mkdir 创建一个新的目录，选项 -p 递归创建目录；cd 切换目录；pwd 查看当前的工作目录；rmdir 删除一个空目录；cp 复制文件 -r 复制目录 -p 复制的时候保持文件的属性；mv 剪切或者给一个文件改名；rm 删除文件 -r 删除目录 -f 删除目录或者文件的同时不希望询问确认。</p>
+<h2 id="文件处理命令"><a href="#文件处理命令" class="headerlink" title="文件处理命令"></a>文件处理命令</h2><p>1、文件处理命令 touch<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/bin/touch；作用：创建空文件</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    touch [文件名]</span><br></pre></td></tr></table></figure></p>
+<p>注意：在 Linux 的命令里面，如果这个命令的参数没有详细的指定它的绝对路径，就表示要在当前目录下执行这个操作。要想在其他目录下执行这个操作，一定要指明它的绝对路径。</p>
+<p>在 Linux 的文件命名里，除了「/」不能使用外，其它特殊符号都是合法的文件名，其后缀名是可以随便起的，这跟 windows 不一样。注意空格这个特殊符号，在 Linux 中并不建议将空格作为文件名组成部分，由于 Linux 系统把空格作为分隔符，要想使用空格作为文件名则必须用引号扩起来，这样虽然可以用空格作为文件名，但是对以后该文件的查找、修改、复制等操作造成麻烦，所以不建议这样使用。</p>
+<p>2、文件处理命令 cat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/bin/cat；作用：一次性显示整个文件内容</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    cat [选项] [文件名]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -n  显示行号，number</span><br></pre></td></tr></table></figure></p>
+<p>cat 命令适合看简短的文件。cat 不适合浏览比较长的文件。cat 命令会一次性列出文件所有内容</p>
+<p>3、文件处理命令 tac<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/usr/bin/tac；作用：一次性显示整个文件内容（反向列示）</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    tac [选项] [文件名]</span><br></pre></td></tr></table></figure></p>
+<p>4、文件处理命令 more<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/bin/more；作用：分页显示文件内容</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    more [文件名]</span><br><span class="line"></span><br><span class="line">快捷键：</span><br><span class="line">    空格或 f   翻页</span><br><span class="line">    Enter     换行</span><br><span class="line">    q 或 Q    退出</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    more /etc/services</span><br></pre></td></tr></table></figure></p>
+<p>more 命令是一个常用的分页显示文件内容的命令。该命令不可以往上翻。</p>
+<p>5、文件处理命令 less<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/usr/bin/less；作用：分页显示文件内容（可向上翻页）</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    less [文件名]</span><br></pre></td></tr></table></figure></p>
+<p>使用 less 命令，不仅可以像 more 命令一样进行浏览，还可以往上翻，使用 PgUp 表示一页一页往上翻，使用向上的剪头表示一行一行往上翻。还可以进行搜索：直接在 less 的浏览状态里面按一个「/」+ 你要搜索的关键词，就会把行里所有包含这个关键词的进行反白显示，同时如果在你当前查看的页里没有你要得到的搜索的关键词所在行的信息，可以按 n 表示 next 接着往下找。</p>
+<p>6、文件处理命令 head<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/usr/bin/head；作用：显示文件前面几行</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    head [选项] [文件名]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -n   指定行数</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    head -n 20 /etc/services</span><br></pre></td></tr></table></figure></p>
+<p>如果只想看文件的前几行，则可以使用此命令。如果不用 -n 指定要显示的行数，则默认显示的是前 10 行。</p>
+<p>7、文件处理命令 tail<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">      命令所在路径：/usr/bin/tail；作用：显示文件后面几行</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    tail [选项] [文件名]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -n   指定行数</span><br><span class="line">    -f   动态显示文件末尾内容</span><br></pre></td></tr></table></figure></p>
+<p>显示文件最后面几行内容，默认是 10 行。-f 动态显示文件末尾的内容。使用该命令以后它会显示文件最末尾的位置，但是它并没有回到命令行，如果这时你这个文件的内容进行了变化，在这个命令操作状态下它也会实时变化的。一般来说用的也不会太多，一般用来监控一些日志。</p>
+<p>小结：touch 创建一个文件；cat 查看文件的内容（浏览一些短文件），-n 用来显示行号；tac 反向显示文件内容（反向显示并不支持 -n 这个选项）；more 分页显示文件内容（主要指一些长的文件，不可以向上翻）；less 分页显示文件内容（可以向上/下翻，使用 「/ + 要搜索的关键词」在浏览的过程中遍历整个的文件进行搜索，可以用 n 键查找下一个匹配的位置）；head 查看一个文件的前几行，-n 指定要查看前几行，默认为 10 行；tail 查看一个文件的最后几行，-n 指定要查看后几行，-f 动态显示文件最后的内容，默认为 10 行。</p>
+<p>8、文件处理命令 ln<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 link；命令所在路径：/bin/ln；作用：生成链接文件</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    ln [选项] [原文件] [目标文件]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -s  创建软链接，s 代表 symbolic，make symbolic links instead of hard links，即创建符号链接而不是硬链接</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 创建 /etc/issue 的软链接 /root/issue.soft</span><br><span class="line">    ln -s /etc/issue /root/issue.soft</span><br><span class="line"></span><br><span class="line">    # 创建文件 /etc/issue 的硬链接 /root/issue.hard</span><br><span class="line">    ln /etc/issue /root/issue.hard</span><br></pre></td></tr></table></figure></p>
+<p>9、软链接特征<br>类似 windows 快捷方式。作用：方便快捷的让你找到你最常使用的一些东西，便于规划，方便管理。  </p>
+<ol>
+<li>在 Linux 系统里面，它前面的 10 个文件权限的标识全部都是 lrwxrwxrwx，意味着所有的人都有全部的操作权限，每个用户在对这个软链接进行操作的时候，到底他能具有什么样的权限，是由这个文件对应的源文件的权限最终决定的。</li>
+<li>软链接文件大小很小，因为它只是一个符号链接。</li>
+<li>有一个箭头指向到它所对应的源文件（硬链接是没有箭头指向的）。</li>
+</ol>
+<p>10、硬链接特征</p>
+<ol>
+<li>拷贝「cp -p」+ 同步更新。cp -p 是拷贝文件并且保留文件的属性不变；同步更新即不管是修改原文件还是硬链接文件，两者的内容始终会自动保持一致，即同步更新。</li>
+<li>通过 i 结点识别，硬链接的 i 节点与源文件的 i 节点一样。</li>
+<li>不能跨分区。</li>
+<li>不能针对目录使用。</li>
+</ol>
+<p>软链接与硬链接的区别：硬链接就类似于拷贝，但是可以同步更新，源文件即使不在了，硬链接照样可以访问，因为是类似拷贝的。如果软链接源文件不在了，则它会报错找不到源文件。一个文件一定有一个 i 节点，但是一个 i 节点不一定只对应一个文件，硬链接就是一个特殊案例，一个 i 节点映射到了多个文件。注意硬链接在 Linux 中用的非常少！</p>
+<h2 id="权限管理命令"><a href="#权限管理命令" class="headerlink" title="权限管理命令"></a>权限管理命令</h2><p>1、权限管理命令 chmod<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 change the permissions mode of a file；命令所在路径：/bin/chmod；作用：改变文件或目录权限</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    chmod [选项] [&#123;ugoa&#125;&#123;+-=&#125;&#123;rwx&#125;] [文件或目录]</span><br><span class="line">    chmod [选项] [mode] [文件或目录]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -R   递归修改</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 可以同时做多个授权，中间用「,」逗号分隔</span><br><span class="line">    chmod u+rwx,g+rw,o=r test.txt</span><br><span class="line"></span><br><span class="line">    # 注意 u、g、o 可以连在一起写</span><br><span class="line">    chmod u=rwx,go+rwx test.txt</span><br></pre></td></tr></table></figure></p>
+<p><strong>一个文件或目录的权限只有两个人可以更改：一个是该文件或目录的所有者，另一个就是管理员 root。</strong></p>
+<p>权限数字表示：r=4，w=2，x=1。</p>
+<p>2、文件目录权限总结<br><img src="/upload_image/File_Directories_Permission.png" alt="文件目录权限总结" title="文件目录权限总结"></p>
+<p>注意：读写执行权限对目录的含义！！！要想删除一个文件，你必须有这个文件所在的目录的写权限。对于目录，r（查看目录内容）、x（进入目录）权限一般都是一起出现的。</p>
+<p>3、权限管理命令 chown<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 change file ownership；命令所在路径：/bin/chown；作用：改变文件或目录的所有者</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    chown [用户] [文件或目录]</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 改变文件 test.txt 的所有者为 root</span><br><span class="line">    chown root test.txt</span><br><span class="line"></span><br><span class="line">    # 同时改变文件或目录的所有者所属组</span><br><span class="line">    chown root:root test.txt</span><br><span class="line">    或</span><br><span class="line">    chown root.root test.txt</span><br><span class="line"></span><br><span class="line">    # 该变文件或目录的所属组，注意「:」或「.」</span><br><span class="line">    chown .root test.txt</span><br><span class="line">    或</span><br><span class="line">    chown :root test.txt</span><br></pre></td></tr></table></figure></p>
+<p><strong>在 Linux 系统中，改变一个文件或者目录的所有者，只有管理员 root 可以做这样的操作。</strong><br>可以使用 useradd 命令来添加一个用户，使用 passwd 为该用户设置一个密码。</p>
+<p>4、权限管理命令 chgrp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 change file group ownership；命令所在路径：/bin/chgrp；作用：改变文件或目录的所属组</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    chgrp [用户组] [文件或目录]</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 改变文件 test.txt 的所属组为 family</span><br><span class="line">    chgrp family test.txt</span><br></pre></td></tr></table></figure></p>
+<p><strong>在 Linux 系统中，改变一个文件或者目录的所属组，只有管理员 root 可以做这样的操作。</strong></p>
+<p>添加用户组命令：groupadd。</p>
+<p>所有者：谁创建的文件谁就是文件的所有者；所属组：一个用户可以属于多个组，但是他总有个缺省组（缺省，即系统默认状态，意思与「默认」相同），每个用户创建文件的时候，它（该文件）的所属组就是该用户的缺省组，每个用户只能有一个缺省组。所以在创建一个文件的时候，它的所有者就是他自己即文件的创建者，它的所属组就是这个文件创建者的缺省组（了解即可）。</p>
+<p>5、权限管理命令 umask<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    英文原意 the user file-creation mask（mask 掩码的意思）；命令所在路径：Shell 内置命令；作用：显示、设置文件的缺省权限</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    umask [-S]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -S   以 rwx 形式显示新建文件缺省权限（注意 S 大写）</span><br></pre></td></tr></table></figure></p>
+<p>在 Linux 权限管理有一个最基本的定义：缺省创建的文件是不能具有可执行权限的。所以在 Linux 系统中任何新建的文件都会把可执行权限去掉。这样做的目的是为了安全。<strong>注意只针对文件，对目录没有这样的限制。</strong></p>
+<p>直接执行 umask 命令会得到一个 4 位的数字：0022。第一个 0 表示特殊权限，022 代表正常的权限，其实 022 是权限掩码，真正的缺省权限是 777-022=755 即默认的权限 rwxr-xr-x。而 Linux 系统中任何新建的文件都会把可执行权限去掉，所以你新建的任何一个文件的权限就是：rw-r–r–。</p>
+<p>要想更改缺省权限，则需要先写出你要更改权限的数字，eg：rwxr-xr– 即 754，然后用 777-754=023，最后 umask 023 将缺省创建的权限改为 rwxr-xr–。虽然缺省创建的权限是可以更改的，但是并不建议这样去做。</p>
+<h2 id="文件搜索命令"><a href="#文件搜索命令" class="headerlink" title="文件搜索命令"></a>文件搜索命令</h2><p>注意：尽量减少搜索这个操作，因为搜索它会占用大量的系统资源。在服务器高峰期里面，是不建议用搜索这个命令的。原则：不要在服务器使用高峰期的时候使用 find 命令来进行查找；在查找的过程中搜索的范围越小越好；搜索的条件越精准越好。</p>
+<p>1、文件搜索命令 find<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/bin/find；作用：文件搜索</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    find [搜索范围] [匹配条件]</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 在目录 /etc 中查找文件 init</span><br><span class="line">    find /etc -name init</span><br><span class="line"></span><br><span class="line">    # -iname 不区分大小写</span><br><span class="line">    find /etc -iname init</span><br><span class="line"></span><br><span class="line">    # （注意数据块概念）在根目录下查找大于 100MB 的文件；+n 大于</span><br><span class="line">    # -n 小于，n 等于</span><br><span class="line">    find / -size +204800</span><br><span class="line"></span><br><span class="line">    # 在 /etc 下查找大于 80MB 且小于 100MB 的文件</span><br><span class="line">    # -a 两个条件同时满足，and</span><br><span class="line">    # -o 两个条件满足任意一个即可，or</span><br><span class="line">    find /etc -size +163840 -a -size -204800</span><br><span class="line"></span><br><span class="line">    # 在根目录下查找所有者为 root 的文件</span><br><span class="line">    find / -user root</span><br><span class="line"></span><br><span class="line">    # 在根目录下查找所属组为 root 的文件</span><br><span class="line">    find / -group root</span><br><span class="line"></span><br><span class="line">    # 在 /etc 下查找 5 分钟内被修改过属性的文件和目录</span><br><span class="line">    # -amin 访问时间 access；-cmin 文件属性 change；-mmin 文件内容 modify</span><br><span class="line">    # +n 大于多长时间，-n 多长时间以内，n 等于</span><br><span class="line">    find /etc -cmin -5</span><br><span class="line"></span><br><span class="line">    # -type 根据文件类型查找</span><br><span class="line">    # f 文件；d 目录；l 软链接文件</span><br><span class="line">    find /etc -type f</span><br><span class="line"></span><br><span class="line">    # -inum 根据 i 节点查找</span><br><span class="line">    find /etc -inum 12345</span><br><span class="line"></span><br><span class="line">    # 在当前目录中查找 iNode 为 666 的文件或目录并删除</span><br><span class="line">    find . -inum 666 -ok rm &#123;&#125; \;</span><br></pre></td></tr></table></figure></p>
+<p>注意利用 -name 搜索的话，它只会搜索文件名是 init的文件，而不像 windows 里面那样只要文件名包含 init 就都会被搜素到，可以理解为这是一种非常精准的搜索。要想像 windows 一样，可以做一个模糊的搜索即只要是包含 init 这 4 个连续的字母，就可以被搜素到，则：find /etc -name <em>init</em>，「<em>」号表示通配符，意思是只要文件名里有 init 就会被搜索到。init</em> 表示以 init 开头的；init??? 表示 init 以后有 3 个字符，问号匹配单个字符。Linux 中常用的两种通配符：* 号可以匹配任意字符，? 号可以匹配某个单个字符。</p>
+<p>注意：在 Linux 系统中，一个数据块默认是 512 字节即 0.5kb；数据块是 Linux 系统中存储文件的最小单位。而 -size 的大小是用数据块换算的，所以 100MB 的文件所对应的就是 204800 个数据块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 在 /etc 下查找 inittab 文件并显示其详细信息</span><br><span class="line"># 「-exec/-ok 命令 &#123;&#125; \;」对搜索结果执行操作</span><br><span class="line">find /etc -name inittab -exec ls -l &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<p>前面还是正常写 find 要执行的查找的命令，找到这个结果以后，可以使用 -exec/-ok 直接连接一个命令即对 find 查找的结果做一些操作，再加上固定格式「{} \;」。{} 表示的是 find 查找的结果，表示对 find 查找的结果做一个替换，因为 find 查找的结果可能有多个，所有使用 {} 表示。「\」表示转义符，「;」表示结束。<br>注意：「;」分号，不要丢掉，而且「\」和「;」之间没有空格分隔！！！ -exec 和 -ok 的区别：-exec 直接执行，-ok 会一个个询问你是否执行（即会有询问确认环节）。</p>
+<p>find -inum 使用场景，确定一个文件是否有硬链接。查看一个文件是否有硬链接：首先查看该文件的 i 节点，然后在整个它所在的分区里面（硬链接不能跨分区）做一个搜索，找 i 节点是你这个指定数字的文件，它就会把它的硬链接文件找到。</p>
+<p>小结：find 命令 -name 根据文件名来查找；-iname 查找的时候不区分大小写；使用的通配符：* 匹配任意字符，? 匹配单个字符；-size 根据文件大小来查找，+ 大于多少，- 小于多少；-user 根据所有者来查找；-group 根据所属组来查找；-amin 根据访问时间来查找；-cmin 根据文件属性的更改查找；-mmin 根据文件内容更改来查找；-type 根据文件类型来查找，f 文件，d 目录，l 软链接；-inum 根据 i 节点来查找；-a 连接两个条件，表示两个条件都满足；-o 表示两个条件只有满足一个就可以；-exec 或者-ok 对搜索的结果直接进行操作，二者的区别只有一个就是 -ok 会询问确认，固定格式「{} \;」。</p>
+<h2 id="其他搜索命令"><a href="#其他搜索命令" class="headerlink" title="其他搜索命令"></a>其他搜索命令</h2><p>1、文件搜索命令 locate<br><a href="https://blog.csdn.net/feifeilyj/article/details/52238209" target="_blank" rel="noopener">centos locate 命令安装</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/usr/bin/locate；作用：在文件资料库中查找文件</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    locate 文件名</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    locate inittab</span><br></pre></td></tr></table></figure></p>
+<p>该命令在查找的时候不像 find 来遍历你所搜索的范围，而是建立了一个文件资料库（该资料库会定期更新），它在找的时候不是在硬盘上找，而是在资料库里面找你有搜索的文件，所以速度很快。虽然使用 locate 命令查找的速度非常快，但是新建的文件使用该命令是找不到的，因为 locate 的文件资料库并没有更新。手动更新文件资料库命令：updatedb。</p>
+<p>注意：/tmp 临时文件目录，并不在文件资料库所收录的文件范围之中，如果你要找的文件在 /tmp 目录下面，使用该命令是找不到的。如果希望 locate 命令在查找的时候不区分大小写，可以使用选项「-i」。</p>
+<p>2、文件搜索命令 which<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/usr/bin/which；作用：搜索命令所在目录及别名信息</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    which 命令</span><br></pre></td></tr></table></figure></p>
+<p>which 提供了一种快速查找一个命令所在的绝对路径的方法。除了可以找到命令所在的目录还可以找到该命令的别名，查看该命令本身是否有别名相关的信息。    实际上在 Linux 系统中，本身是没有询问确认的机制，之所以现在在 Linux 系统中有询问确认的选项，是因为它加了一个 -i 的选项，eg：在使用 rm 命令的时候，系统在找的时候找到的是一个别名而不是一个命令，它的别名等于「rm -i」，「-i」这个选项实际上就是一个询问确认的选项，所以这是别名的作用。</p>
+<p>3、文件搜索命令 whereis<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/usr/bin/whereis；作用：搜索命令所在目录及帮助文档路径</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    whereis [命令名称]</span><br></pre></td></tr></table></figure></p>
+<p>whereis 除了可以找到命令所在的绝对路径，还可以找到这个命令它相关的帮助文档所在的位置，这个帮助文档就是 man 命令所展示的文件。</p>
+<p>4、文件搜索命令 grep<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">简介：</span><br><span class="line">    命令所在路径：/bin/grep；作用：在文件中搜寻字符匹配的行并输出，属于精确匹配</span><br><span class="line"></span><br><span class="line">格式：</span><br><span class="line">    grep [选项] [指定字串] [文件]</span><br><span class="line"></span><br><span class="line">选项：</span><br><span class="line">    -i   不分区大小写</span><br><span class="line">    -v   显示排除指定字串的行</span><br><span class="line"></span><br><span class="line">举例：</span><br><span class="line">    # 列出在 /etc/issue 文件中包含 hello 字串的行，且忽略大小写</span><br><span class="line">    grep -i hello /etc/issue</span><br><span class="line"></span><br><span class="line">    # 列出 /etc/issue 文件中所有不包含 Hello 字串的行</span><br><span class="line">    grep -v Hello /etc/issue</span><br></pre></td></tr></table></figure></p>
+<p>「-v  #」表示把 # 号所在的行都去掉，不管 # 号在什么位置，只要该行有 # 号，就都去掉。这样做是不太合理的，可能 # 位于中间，前面是有有效代码的。所以要想把行首以 # 开始的注释行去掉，要在 # 前面加一个表示行首的「^」即「^#」。使用 grep 命令查找文件中除注释以外的内容：<code>grep -v ^# 文件名</code>，需要注意的是针对 Shell 脚本的首行 # 号，应该做特殊处理。</p>
+<p>小结：locate 快速定位到一个文件所在的路径（文件资料库），updatedb 更新文件资料库（有个别目录下的文件并不被收录到文件资料库中 /tmp），-i 不区分大小写；which 或者 whereis 查找命令所在的绝对路径；grep 在文件内容中查找，-i 不区分大小写，-v 排除查找。</p>
 
       
     </div>
@@ -534,7 +597,7 @@
   <p><span>本文标题:</span><a href="/2018/09/17/Linux入门总结(四)/">Linux 入门总结(四)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 Yan ChongSheng 的个人博客">Yan ChongSheng</a></p>
   <p><span>发布时间:</span>2018年09月17日</p>
-  <p><span>最后更新:</span>2018年09月20日</p>
+  <p><span>最后更新:</span>2018年10月26日</p>
   <p><span>原始链接:</span><a href="/2018/09/17/Linux入门总结(四)/" title="Linux 入门总结(四)">yanchongsheng.github.io/2018/09/17/Linux入门总结(四)/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="yanchongsheng.github.io/2018/09/17/Linux入门总结(四)/"  aria-label="复制成功！"></i></span>
   </p>
@@ -647,32 +710,6 @@
 
     <div class="post-spread">
       
-        <!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-<span class="jiathis_txt">分享到：</span>
-<a class="jiathis_button_fav">收藏夹</a>
-<a class="jiathis_button_copy">复制网址</a>
-<a class="jiathis_button_email">邮件</a>
-<a class="jiathis_button_weixin">微信</a>
-<a class="jiathis_button_qzone">QQ空间</a>
-<a class="jiathis_button_tqq">腾讯微博</a>
-<a class="jiathis_button_douban">豆瓣</a>
-<a class="jiathis_button_share">一键分享</a>
-
-<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-<a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" >
-var jiathis_config={
-  data_track_clickback:true,
-  summary:"",
-  shortUrl:false,
-  hideMore:false
-}
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-      
     </div>
   </div>
 
@@ -740,7 +777,7 @@ var jiathis_config={
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -751,7 +788,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -762,7 +799,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -864,7 +901,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-简介"><span class="nav-number">1.</span> <span class="nav-text">Vim 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命令模式和编辑模式常用命令"><span class="nav-number">2.</span> <span class="nav-text">命令模式和编辑模式常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vim-使用技巧"><span class="nav-number">3.</span> <span class="nav-text">Vim 使用技巧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博客"><span class="nav-number">4.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录处理命令"><span class="nav-number">1.</span> <span class="nav-text">目录处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件处理命令"><span class="nav-number">2.</span> <span class="nav-text">文件处理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#权限管理命令"><span class="nav-number">3.</span> <span class="nav-text">权限管理命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件搜索命令"><span class="nav-number">4.</span> <span class="nav-text">文件搜索命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他搜索命令"><span class="nav-number">5.</span> <span class="nav-text">其他搜索命令</span></a></li></ol></div>
             
 
           </div>
@@ -914,7 +951,7 @@ var jiathis_config={
 
 <div class="theme-info">
   <i class="fa fa-paint-brush" aria-hidden="true"></i>
-  <span class="post-count">博客全站共 90.5k 字</span>
+  <span class="post-count">博客全站共 104.4k 字</span>
 </div>
 
 
@@ -1068,6 +1105,28 @@ var jiathis_config={
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Qu6rmVm1gcMYRPyyiWcRJaEH-gzGzoHsz',
+        appKey: 'w40lNEaD5KbJiMUWYExaMFst',
+        placeholder: '撰写评论',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'100' || 10,
+    });
+  </script>
 
 
 
