@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Linux 基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="有才的博客" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Linux 入门总结(十一) —— Shell 基础">
+<meta name="keywords" content="Linux 基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 入门总结(十一)">
+<meta property="og:url" content="yanchongsheng.github.io/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/index.html">
+<meta property="og:site_name" content="有才的博客">
+<meta property="og:description" content="Linux 入门总结(十一) —— Shell 基础">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="/upload_image/Escape_Character.png">
+<meta property="og:image" content="/upload_image/Bash_Shortcut_Key.png">
+<meta property="og:image" content="/upload_image/Output_redirect.png">
+<meta property="og:image" content="/upload_image/Output_All.png">
+<meta property="og:image" content="/upload_image/Execute_Many_Command.png">
+<meta property="og:image" content="/upload_image/Example_Many_Command.png">
+<meta property="og:image" content="/upload_image/Wildcard.png">
+<meta property="og:image" content="/upload_image/Special_Character.png">
+<meta property="og:image" content="/upload_image/PS1_Character.png">
+<meta property="og:image" content="/upload_image/Location_Param.png">
+<meta property="og:image" content="/upload_image/Predefined_Variable.png">
+<meta property="og:image" content="/upload_image/Linux_Operator.png">
+<meta property="og:image" content="/upload_image/Variable_Alternative_Test.png">
+<meta property="og:image" content="/upload_image/Profile_Invoke_Order.png">
+<meta property="og:image" content="/upload_image/Local_Terminal_Character.png">
+<meta property="og:updated_time" content="2018-10-22T11:29:29.961Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 入门总结(十一)">
+<meta name="twitter:description" content="Linux 入门总结(十一) —— Shell 基础">
+<meta name="twitter:image" content="/upload_image/Escape_Character.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="yanchongsheng.github.io/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/"/>
+
+
+
+
+
+  <title>Linux 入门总结(十一) | 有才的博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <!-- 在右上角或者左上角实现fork me on github -->
+    <a href="https://github.com/yanchongsheng"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">有才的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不孤独，无自由</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="yanchongsheng.github.io/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yan ChongSheng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="有才的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux 入门总结(十一)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+                      
+                        <span class="post-meta-item-icon">
+                          <i class="fa fa-calendar-o"></i>
+                        </span>
+                        
+                          <span class="post-meta-item-text">发表于</span>
+                        
+                        <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-25T19:59:38+08:00">
+                          2018-10-25
+                        </time>
+                      
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux-基础/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux 基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+          
+             <span id="/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/" class="leancloud_visitors" data-flag-title="Linux 入门总结(十一)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度</span>
+               
+                 <span id="busuanzi_container_page_pv">
+                   <span id="busuanzi_value_page_pv"></span>
+                 </span>
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+           <span class="post-meta-divider">|</span>
+          
+
+                      
+                        
+                        <span class="post-meta-item-icon">
+                          <i class="fa fa-file-word-o"></i>
+                        </span>
+                        
+                          <span class="post-meta-item-text">字数统计</span>
+                        
+                        <span title="字数统计">
+                          4,795
+                        </span>
+                      
+
+                      
+                        <span class="post-meta-divider">|</span>
+                      
+
+                      
+                        <span class="post-meta-item-icon">
+                          <i class="fa fa-clock-o"></i>
+                        </span>
+                        
+                          <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                        
+                        <span title="阅读时长">
+                          18
+                        </span>
+                      
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote class="blockquote-center"> Linux 入门总结(十一) —— Shell 基础 </blockquote>
+
+<a id="more"></a>
+<h2 id="Shell-概述"><a href="#Shell-概述" class="headerlink" title="Shell 概述"></a>Shell 概述</h2><p>1、Shell 是什么？<br>Shell 是一个命令行解释器，它为用户提供了一个向 Linux 内核发送请求以便运行程序的界面系统程序，用户可以用 Shell 来启动、挂起、停止甚至编写一些程序。</p>
+<p>Shell 还是一个功能相当强大的编程语言。Shell 是解释执行的脚本语言，在 Shell 中可以直接调用 Linux 系统命令。</p>
+<p>2、Shell 的分类<br>Bourne Shell：从 1979 起 Unix 就开始使用 Bourne Shell，Bourne Shell 的主文件名为 sh。</p>
+<p>C Shell：C Shell 主要在 BSD (Berkeley Software Distribution，是一个操作系统的名称，衍生自 Unix，被称为伯克利 Unix) 版的 Unix 系统中使用，其语法和 C 语言相类似而得名。</p>
+<p>Shell 的两种主要语法类型有 Bourne 和 C，这两种语法彼此不兼容。Bourne 家族主要包括 sh、ksh、Bash、psh、zhs；C 家族主要包括：csh、tcsh。</p>
+<p>Bash (Bourne Again Shell): Bash 与 sh 兼容，现在使用的 Linux 就是使用 Bash 作为用户的基本 Shell。</p>
+<p>3、Linux 支持的 Shell<br>在 「/etc/shells」文件中保存着当前系统支持的 Shell。注意：只要是系统支持的 Shell，我们就可以通过输入对应的 Shell 名字来进行切换。</p>
+<p>4、echo 输出命令<br>echo 是反射、回声的意思。是用来输出的命令。格式：<code>echo [选项][输出内容]</code>；选项：<code>-e</code>，支持反斜杠控制的字符转换。<br>eg：<code>echo &#39;Hello World!&#39;</code>  注意：感叹号在 Shell 中有特殊的作用，所以这里使用单引号。</p>
+<p>5、Linux 中常见的转义符<br><img src="/upload_image/Escape_Character.png" alt="Linux 中常见的转义符" title="Linux 中常见的转义符"></p>
+<p>eg：<code>echo -e &quot;ab\bc&quot;</code> 删除左侧字符；输出结果：<code>ac</code>；分析：<code>\b</code> 代表的是退格键。<br>eg：<code>echo -e &quot;a\tb\tc\nd\te\tf&quot;</code> 制表符与换行符。<br>eg: <code>echo -e &quot;\e[1;31m abcd \e[0m&quot;</code> 带颜色输出内容；输出结果：<code>红色的 abcd</code>；分析：31m=红色；「\e[1;」表示开启颜色输出，「\e[0m」    表示结束颜色输出。</p>
+<p>6、第一个 Shell 脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/Bash</span><br><span class="line"><span class="meta">#</span>The first program</span><br><span class="line"><span class="meta">#</span>Author: YanChongsheng E-mail: yanchongsheng@gmail.com</span><br><span class="line">echo -e "YanChongsheng is the most handsome man in China."</span><br></pre></td></tr></table></figure>
+<p>注意：「#!/bin/Bash」这句话不是注释，而是标称，标称以下内容是 Shell 脚本。在 Linux 中以 # 号开头的是注释。</p>
+<p>7、脚本执行</p>
+<ul>
+<li>方式一：赋予执行权限，直接运行 <code>赋予权限：chmod 755 hello.sh 运行脚本：./hello.sh</code></li>
+<li>方式二：通过 Bash 调用执行脚本：<code>bash hello.sh</code></li>
+</ul>
+<p>注意：使用 base 执行脚本的时候，脚本甚至可以没有执行权限。它的意思是通过这个 Shell 来解释这个 shell 脚本文件，所以只要里面的内容是正确的，连执行权限都可以不用给就可以执行，但是最习惯的执行方法还是第一种。</p>
+<p>cat 命令给其加上选项 -A ：表示查看所有的文件内容，包括隐藏字符，例如回车符就属于文件中的隐藏字符。在 Linux 中，回车符识别为「$」号。但是 Windows 中的回车符是「^M$」，表示这个 shell 是在 windows 中编辑完成的，要想在 Linux 中执行，就需要进行转换，利用命令: dos2unix [文件名]。注意：如果 dos2unix 命令没有则需要安装：<code>yum -y install dos2unix</code>。</p>
+<h2 id="Bash-的基本功能"><a href="#Bash-的基本功能" class="headerlink" title="Bash 的基本功能"></a>Bash 的基本功能</h2><p>1、历史命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">格式：histor [选项][历史命令保存文件]</span><br><span class="line">选项：</span><br><span class="line">    -c  清空历史命令</span><br><span class="line">    -w  把缓存中的历史命令写入历史命令保存文件「~./bash_histor」</span><br></pre></td></tr></table></figure></p>
+<p>注意：每次登陆之后所敲的命令都会放在 history 即内存中，并不会放入 ~/.bash_history 文件，而是等正常退出以后，才会将内存中的历史命令写入到 ~/.bash_history 文件中的。注意：-c 会清除内存中和文件中的所有的历史命令。</p>
+<p>历史命令默认会保存 1000 条，可以在环境变量配置文件「/etc/profile」中进行修改 <code>HISTSIZE=1000</code> 注意：重新登录以后才会生效。如果超过 1000，则删除第 1 条命令，保存第 1001 条命令。</p>
+<p>历史命令的调用：</p>
+<ol>
+<li>使用上、下箭头调用以前的历史命令</li>
+<li>使用「!n」调用第 n 条历史命令</li>
+<li>使用「!!」执行上一条命令</li>
+<li>使用「!字符」执行最后一条以该字符串开头的命令</li>
+</ol>
+<p>2、命令别名：<br>设定命令别名：alias 别名=’原命令’。注意：用命令行方式定义的别名它只会临时生效，一旦系统重启，这个别名就会消失。<br>查询命令别名：alias 别名</p>
+<p>3、命令执行顺序</p>
+<ol>
+<li>第一顺位：执行用绝对路径或相对路径执行的命令。</li>
+<li>第二顺位：执行别名。</li>
+<li>第三顺位：执行 Bash 的内部命令。</li>
+<li>第四顺位：执行按照 $PATH 环境变量定义的目录查找顺序找到的第一个命令。</li>
+</ol>
+<p>输出环境变量：<code>echo $PATH</code></p>
+<p>让别名永久生效：<code>vim /root/.bashrc</code> 注意：修改的是用户对应家目录下的「./bashrc」文件。rc 可以简单的理解为 user config 的简写，取 user 的最后一个字母 r 和 config 的第一个字母 c 组成 rc。</p>
+<p>删除别名：<code>unalias 别名</code></p>
+<p>4、Bash 常用快捷键<br><img src="/upload_image/Bash_Shortcut_Key.png" alt="Bash 常用快捷键" title="Bash 常用快捷键"></p>
+<p>5、标准输入输出</p>
+<table>
+<thead>
+<tr>
+<th>设备</th>
+<th>设备文件名</th>
+<th>文件描述符</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>键盘</td>
+<td>/dev/stdin</td>
+<td>0</td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td>显示器</td>
+<td>/dev/stdout</td>
+<td>1</td>
+<td>标准输出</td>
+</tr>
+<tr>
+<td>显示器</td>
+<td>/dev/stderr</td>
+<td>2</td>
+<td>标准错误输出</td>
+</tr>
+</tbody>
+</table>
+<p>6、输出重定向<br><img src="/upload_image/Output_redirect.png" alt="输出重定向" title="输出重定向"></p>
+<p>注意：不是所有的命令都可以使用输出重定向的，这个命令必须得有输出才可以。<br>注意：错误输出中，2 和 大于号之间不能有空格。</p>
+<p><img src="/upload_image/Output_All.png" alt="正确输出和错误输出同时保存" title="正确输出和错误输出同时保存"></p>
+<p>注意：「/dev/null」是 Linux 中的一个特殊文件，可以把它当成垃圾箱，相当于不保存任何输出。</p>
+<p>7、输入重定向「注意：输入重定向了解即可」<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式：wc [选项][文件名]</span><br><span class="line">选项：</span><br><span class="line">    -c  统计字节数 (byte) print the byte counts</span><br><span class="line">    -m  统计字符数 (character) print the character counts</span><br><span class="line">    -w  统计单词数 (word)</span><br><span class="line">    -l  统计行数 (line)</span><br></pre></td></tr></table></figure></p>
+<p>注意：wc 可以统计键盘输入，输入的行数、单词数、字节数，输入完成之后按 ctrl + d，结束并进行统计。注意回车换行符也会被当成字节进行统计。</p>
+<p>把文件作为命令的输入：<code>命令&lt;文件</code>。eg：<code>wc &lt; anaconda-ks.cfg</code></p>
+<p>8、多命令顺序执行<br><img src="/upload_image/Execute_Many_Command.png" alt="多命令顺序执行" title="多命令顺序执行"></p>
+<p>eg：<code>ls; date; cd /user; pwd</code><br>eg: <code>命令 &amp;&amp; echo yes || echo no</code></p>
+<p><img src="/upload_image/Example_Many_Command.png" alt="例子" title="例子"><br>命令 dd 是磁盘或者说是数据复制的命令，但是它不是 cp，cp 命令只能复制文件，但是 dd 命令能复制特殊文件，也能复制分区甚至整个硬盘，不仅复制分区或硬盘的数据，还复制分区或硬盘的文件系统。dd 主要是用来进行磁盘复制。</p>
+<p>9、管道符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">格式：命令1 | 命令2</span><br></pre></td></tr></table></figure></p>
+<p><code>命令1</code> 的<code>正确输出</code>作为<code>命令2</code> 的<code>操作对象</code>。</p>
+<p>注意：命令1 必须正确输出，否则命令2 不会正常执行。</p>
+<p>10、grep 命令，在文件中搜索符合条件的字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式：grep [选项] &quot;搜索内容&quot;</span><br><span class="line">选项：</span><br><span class="line">    -i  忽略大小写</span><br><span class="line">    -n  输出行号</span><br><span class="line">    -v  反向查找 (注意：-v 查找的是不匹配的行，即反向查找)</span><br><span class="line">    --color=auto  搜索出的关键字用颜色显示</span><br></pre></td></tr></table></figure></p>
+<p>通配符<br><img src="/upload_image/Wildcard.png" alt="通配符" title="通配符"></p>
+<p>Bash 中的特殊符号<br><img src="/upload_image/Special_Character.png" alt="Bash 中的特殊符号" title="Bash 中的特殊符号"></p>
+<p>注意：通配符是用来匹配文件名的，起码在 Linux 系统当中是用来匹配文件名的。</p>
+<p>$ 和 $() 的区别是：$ 是用于调用变量的值；而 $() 是用来引用系统命令。</p>
+<h2 id="Bash-的变量"><a href="#Bash-的变量" class="headerlink" title="Bash 的变量"></a>Bash 的变量</h2><p>1、变量设置规则  </p>
+<ol>
+<li><p>变量名称可以由字母、数字、下划线组成，但是不能以数字开头。</p>
+</li>
+<li><p>在 Bash 中，变量的默认类型都是字符串型，如果要进行数值运算，则必须指定变量类型为数值型。</p>
+</li>
+<li><p>变量用等号连接值，<strong>等号左右两侧不能有空格</strong>。</p>
+</li>
+<li><p>变量的值如果有空格，需要使用单引号或双引号包括。</p>
+</li>
+<li><p>在变量的值中，可以使用「\」转义符。</p>
+</li>
+<li><p>如果需要增加变量的值，那么可以进行变量值的叠加。不过变量需要用双引号包含 “$变量名” 或用 ${变量名} 包含。</p>
+</li>
+<li><p>如果是把命令的结果作为变量值赋值给变量，则需要使用反引号或 $() 包含<strong>命令</strong>。</p>
+</li>
+<li><p>环境变量名建议大写，便于区分。</p>
+</li>
+</ol>
+<p>环境变量名大写，目的是为了区分。因为环境变量会让 Linux 当中所有的 Shell 都能使用，Linux 的系统命令也是在所有的 Shell 中都能使用，但是系统命令都是小写，为了让系统命令和环境变量区分开，建议把环境变量都写成大写。</p>
+<p>2、变量分类</p>
+<ol>
+<li>用户自定义变量</li>
+<li>环境变量：这种变量中主要保存的是和系统操作环境相关的数据。</li>
+<li>位置参数变量：这种变量主要是用来向脚本当中传递参数或数据的，变量名不能自定义，变量作用是固定的。</li>
+<li>预定义变量：是 Bash 中已经定义好的变量，变量名不能自定义，变量作用也是固定的。</li>
+</ol>
+<p>其实位置参数变量是预定义变量的一种，由于位置参数变量相对来说较多，所以我们习惯上将位置参数变量单独作为一个分类。所以这两种变量的限制是一样的，只能更改值。</p>
+<p>3、本地变量<br>用户自定义变量又称为本地变量。「$变量名」的作用是调用变量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 定义变量</span><br><span class="line">aa=123</span><br><span class="line"></span><br><span class="line"># 变量叠加</span><br><span class="line">aa=&quot;$aa&quot;456 # 结果：123456</span><br><span class="line">aa=$&#123;aa&#125;789 # 结果：123456789</span><br><span class="line"></span><br><span class="line"># 变量调用</span><br><span class="line">echo $name</span><br><span class="line"></span><br><span class="line"># 变量查看</span><br><span class="line">set</span><br><span class="line"></span><br><span class="line"># 变量删除</span><br><span class="line">unset name</span><br></pre></td></tr></table></figure></p>
+<p>set 命令：表示查看系统的所有变量，包括系统的环境变量，以及系统变量，自定义的变量。<br>总结：变量的定义、叠加、调用、查看、删除；变量的概念、变量的规则、变量的分类。</p>
+<p>4、环境变量是什么？<br>用户自定义变量只在当前 Shell 中生效。（使用命令行定义的）环境变量会在当前 Shell 和这个 Shell 的所有子 Shell 当中生效。如果把环境变量写入相应的配置文件，那么这个环境变量就会在所有的 Shell 中生效。</p>
+<p>5、设置环境变量<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 声明变量</span><br><span class="line">export 变量名=变量值</span><br><span class="line"></span><br><span class="line"># 查询变量</span><br><span class="line">env</span><br><span class="line"></span><br><span class="line"># 删除变量</span><br><span class="line">unset 变量名</span><br><span class="line"></span><br><span class="line"># 将已经定义好的本地变量变为环境变量</span><br><span class="line">export 变量名</span><br></pre></td></tr></table></figure></p>
+<p>注意：系统当前本身就是在一个 Shell 里面，我们可以直接输入 csh、或 bash 表示进入对应的 Shell，而系统本身的 shell 就是 csh 或者 bash 的父 Shell，这样就创建了一个子 Shell，当然子 Shell 里面还可以有子子 Shell。</p>
+<p>如何查询和确定 Shell 呢？<br>使用命令 <code>pstree</code>，它的作用是确定进程数。</p>
+<p>6、系统常见环境变量<br>PATH：系统查找命令的路径。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 输出 PATH</span><br><span class="line">echo $PATH</span><br><span class="line"></span><br><span class="line"># PATH 变量叠加</span><br><span class="line">PATH=&quot;$PATH&quot;:/root/sh</span><br></pre></td></tr></table></figure></p>
+<p>PS1：定义系统提示符的变量</p>
+<p><img src="/upload_image/PS1_Character.png" alt="定义系统提示符" title="定义系统提示符"></p>
+<p>eg：<code>PS1=[\u@\h \W]\$</code>。注意习惯在 $ 最后加一个空格，要不然你的命令会紧挨着提示符 # 或者 $。这种写法只是临时生效。</p>
+<p>注意：env 是专门用来查看当前系统的环境变量的。严格来说 PS1 并不是环境变量，因为 env 命令查看不到，必须使用 set 命令查看。虽然它不是环境变量，但是它是系统预留专门用作定义系统操作环境的一个变量。它是环境变量的一个子分支。</p>
+<p><strong>注意：Linux 以冒号为分割符号。</strong></p>
+<p>7、位置参数</p>
+<p><img src="/upload_image/Location_Param.png" alt="位置参数" title="位置参数"></p>
+<p>位置参数变量最大的作用就是向程序中传递需要的值。它的好处是可以在命令执行的同时接受参数。</p>
+<p>注意：位置参数变量的名称和作用都是固定的。我们能做的只是在里面传入不同的值。</p>
+<p>注意：要想进行数值运算，必须加 $(()) 双小括号括起来，它才能进行数值计算，这是 Linux Shell 的标准格式。</p>
+<p>注意：$# 不会计算命令本身，它计算的仅仅只是参数。</p>
+<p><code>$*</code> 和 $@ 的区别：<code>$*</code> 中的所有参数看成是一个整体。$@ 中的每个参数看成是独立的。</p>
+<p>8、预定义变量<br><img src="/upload_image/Predefined_Variable.png" alt="预定义变量" title="预定义变量"></p>
+<p>其实位置参数变量就是预定义变量当中的一个分类，其特点是不能改变变量名，变量的作用也是固定的。</p>
+<p>$? 用来接收和判断上一条命令是否正确执行。注意：&amp;&amp; || 利用的就是 $? 来判断上一条命令是否正确执行的。</p>
+<p>9、接受键盘输入，read 会把键盘输入的数据赋值给后面的变量中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">格式：read [选项] [变量名]</span><br><span class="line">选项：</span><br><span class="line">    -p &quot;提示信息&quot;：在等待 read 输入时，输出提示信息</span><br><span class="line">    -t 秒数：read 命令会一直等待用户输入，使用此选项可以指定等待时间</span><br><span class="line">    -n 字符数：read 命令只接受指定的字符数，就会执行</span><br><span class="line">    -s：隐藏输入的数据，适用于机密信息的输入</span><br></pre></td></tr></table></figure></p>
+<p>注意：如果不加 -n 选项，read 命令在回车以后才会结束，如果加了 -n 选项，则字符数达到 -n 执行的数字，则自动结束 read 并执行。</p>
+<h2 id="Bash-的运算符"><a href="#Bash-的运算符" class="headerlink" title="Bash 的运算符"></a>Bash 的运算符</h2><p>注意：Linux 的 Shell 中变量的类型默认都是字符串型。</p>
+<p>1、declare 声明变量类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">格式：declare [+/-][选项] 变量名</span><br><span class="line">选项：</span><br><span class="line">    -：给变量设定类型属性</span><br><span class="line">    +：取消变量的类型属性</span><br><span class="line"></span><br><span class="line">    -i：将变量声明为整型（integer）</span><br><span class="line">    -x：将变量声明为环境变量</span><br><span class="line">    -p：显示指定变量的被声明的类型</span><br></pre></td></tr></table></figure></p>
+<p>2、数值运算<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">aa=11</span><br><span class="line">bb=22</span><br><span class="line"></span><br><span class="line"># 方法1</span><br><span class="line">declare -i cc=$aa+$bb</span><br><span class="line"></span><br><span class="line"># 方法2</span><br><span class="line"># 利用 expr 或 let 数值运算工具。注意：「+」号左右两侧必须有空格。</span><br><span class="line">cc=$(expr $aa + $bb)</span><br><span class="line"></span><br><span class="line"># 方法3</span><br><span class="line"># $((运算式)) 或 $[运算式]</span><br><span class="line">cc=$(($aa+$bb))</span><br><span class="line">cc=$[$aa+$bb]</span><br></pre></td></tr></table></figure></p>
+<p>3、运算符<br><img src="/upload_image/Linux_Operator.png" alt="运算符" title="运算符"></p>
+<p>注意：此处数字越大，优先级越高。</p>
+<p>4、变量测试与内容替换<br><img src="/upload_image/Variable_Alternative_Test.png" alt="变量测试与内容替换" title="变量测试与内容替换"></p>
+<p>主要作用：通过 x 的值来确定 y 的情况。这块内容了解即可，完全可以 if 语句来替代，只是系统提供的更简洁、高效一点，用到的时候查一下能看懂就行，不要可以去记忆。</p>
+<h2 id="环境变量配置文件"><a href="#环境变量配置文件" class="headerlink" title="环境变量配置文件"></a>环境变量配置文件</h2><p>1、source 命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">格式：source 配置文件</span><br><span class="line">或</span><br><span class="line">格式：. 配置文件</span><br></pre></td></tr></table></figure></p>
+<p>注意：source 命令的作用是让你的配置文件生效，即让系统重新读取一遍配置文件。（正常情况下配置文件生效需要重新登录一次，但是利用 source 命令可以直让配置文件生效）。<br>注意：点「.」和配置文件之间有空格，点「.」其实就是 source 的缩写。</p>
+<p>2、环境变量配置文件简介<br>环境变量配置文件中主要是定义对系统的操作环境生效的系统默认环境变量，比如 PATH、HISTSIZE、PS1、HOSTNAME 等默认环境变量。</p>
+<p>系统中主要的 5 类环境变量配置文件：</p>
+<ol>
+<li>/etc/profile 的作用：USER 变量、LOGNAME 变量、MAIL 变量、PATH 变量、HOSTNAME 变量、HISTSIZE 变量、umask、调用 /etc/profile.d/*.sh 文件。</li>
+<li>~/.bash_profile 的作用：调用了 ~/.bashrc 文件、在 PATH 变量后面加入了 「:$HOME/bin」这个目录。</li>
+<li>~/.bashrc 的作用：定义默认别名、调用 /etc/bashrc。</li>
+<li>/etc/bashrc 的作用：PS1 变量、umask、PATH 变量、调用 /etc/profile.d/*.sh 文件。</li>
+<li>/etc/profile.d/*.sh</li>
+</ol>
+<p>注意：只要是保存在 /etc 目录中的，表示对所有登录到该 Linux 系统的用户都生效。~/ 表示当前用户的家目录，「.」表示该文件是隐藏文件，这些配置文件针对的是当前用户。「~」表示家目录的意思。</p>
+<p>3、环境变量配置文件作用</p>
+<p><img src="/upload_image/Profile_Invoke_Order.png" alt="环境变量配置文件调用顺序" title="环境变量配置文件调用顺序"></p>
+<p>注意：环境变量默认赋值的时候分两种情况<br>1.一种是用户通过输入用户名和密码的正常登陆。<br>2.一种是用户通过命令切换到子 Shell 的登陆，这种情况是没有输入用户名密码过程的。<br>这两种不同的登陆方法，它读取的配置文件是不一样的。</p>
+<p>注意：环境变量配置文件它们之间是有优先级的。越后面读取的配置文件，其优先级越高，因为后面定义的变量会覆盖前面的变量。</p>
+<p>需要输入用户名密码的正常登录情况配置文件的读取顺序：<br>/etc/profile「 ——&gt; …… ——&gt; /etc/sysconfig/i18n (新版的 Linux 为 /etc/locale.conf) 这些都是 /etc/profile 文件中调用的子文件或子子文件」当完成 /etc/profile 的所有调用以后 /etc/profile 就会将它的调用传递给下一个环境变量配置文件即 ~./bash_profile，然后照着上图依次往下传递。</p>
+<p>发现 /etc/profile 和 /etc/bashrc 中有很多内容是重复的，如 PATH、umask、PS1，注意这个不是单单只是重复。你会发现 /etc/bashrc 中重复定义变量的地方有这样的注释「We’re not a login shell」即该文件定义的是没有登录情况的 Shell 的环境变量。</p>
+<p>4、注销时生效的环境变量配置文件<br>~/.bash_logout 默认为空，可以在里面写一些退出登录时候的操作，比如清空历史命令等操作。</p>
+<p>5、其他配置文件<br>~/.bash_history 历史命令保存的地方。一般不要清空，但是有一种情况例外，比如你给某个服务设置密码，如 mysql，mysql 设置密码的时候使用的是明文（注意：是明文）系统命令，它会把密码记录在历史文件中，所以要清空明文密码记录。</p>
+<p>6、Shell 登录信息<br>1.<strong>本地</strong>终端欢迎信息：/etc/issue<br><img src="/upload_image/Local_Terminal_Character.png" alt="本地终端转义符" title="本地终端转义符"></p>
+<p>注意：欢迎信息不要写 welcome 之类的，应该写的是警告信息。注意：针对的是本地登录。</p>
+<p>2.<strong>远程</strong> 终端欢迎信息：/etc/issue.net<br>注意：转义符在 /etc/issue.net 文件中不能使用，即本地终端的转义符在这里都不能使用，这里只能写纯文本信息。是否显示此欢迎信息由 ssh 的配置文件 /etc/ssh/sshd_config 决定，加入「Banner /etc/issue.net」行才能显示。（记得重启 ssh 服务）。重启 ssh 服务：<code>service sshd restart</code></p>
+<p>3.<strong>本地和远程</strong>登录后欢迎信息：/etc/motd<br>不管是本地登录，还是远程登录，都可以显示此欢迎信息。但是，它是登录后的欢迎信息。刚才那两个文件是登录前的提示信息。</p>
+
+      
+    </div>
+    
+    
+    
+
+
+
+
+    <div>
+        
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:36px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+        
+    </div>
+
+    <div>
+        
+          
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+  <p><span>本文标题:</span><a href="/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/">Linux 入门总结(十一)</a></p>
+  <p><span>文章作者:</span><a href="/" title="访问 Yan ChongSheng 的个人博客">Yan ChongSheng</a></p>
+  <p><span>发布时间:</span>2018年10月25日</p>
+  <p><span>最后更新:</span>2018年10月22日</p>
+  <p><span>原始链接:</span><a href="/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/" title="Linux 入门总结(十一)">yanchongsheng.github.io/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="yanchongsheng.github.io/2018/10/25/Linux-2018-10-25-Linux入门总结-十一/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>
+</div>
+<script>
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({
+          title: "",
+          text: '复制成功',
+          html: false,
+          timer: 500,
+          showConfirmButton: false
+        });
+      });
+    }));
+</script>
+
+
+        
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>开启打赏模式</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Yan ChongSheng 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Yan ChongSheng 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+      <div id="bitcoin" style="display: inline-block">
+        <img id="bitcoin_qr" src="/images/bitcoin.png" alt="Yan ChongSheng 比特币"/>
+        <p>比特币</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux-基础/" rel="tag"><i class="fa fa-tag"></i> Linux 基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/24/Linux-2018-10-24-Linux入门总结-十/" rel="next" title="Linux 入门总结(十)">
+                <i class="fa fa-chevron-left"></i> Linux 入门总结(十)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/26/Linux-2018-10-26-Linux入门总结-十二/" rel="prev" title="Linux 入门总结(十二)">
+                Linux 入门总结(十二) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zMzM4Ny85OTQz"></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="Yan ChongSheng" />
+            
+              <p class="site-author-name" itemprop="name">Yan ChongSheng</p>
+              <p class="site-description motion-element" itemprop="description">不孤独，无自由</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yanchongsheng" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yanchongsheng@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/yanchongsheng" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yanchongsheng" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/chongsheng.yan.56" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://youtube.com/yanchongsheng" target="_blank" title="YouTube">
+                      
+                        <i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐阅读
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="百度" target="_blank">百度</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.alibabagroup.com" title="阿里" target="_blank">阿里</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.qq.com/" title="腾讯" target="_blank">腾讯</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shell-概述"><span class="nav-number">1.</span> <span class="nav-text">Shell 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bash-的基本功能"><span class="nav-number">2.</span> <span class="nav-text">Bash 的基本功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bash-的变量"><span class="nav-number">3.</span> <span class="nav-text">Bash 的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bash-的运算符"><span class="nav-number">4.</span> <span class="nav-text">Bash 的运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量配置文件"><span class="nav-number">5.</span> <span class="nav-text">环境变量配置文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart" aria-hidden="true"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yan ChongSheng</span>
+</div>
+
+
+
+<div class="powered-by">
+  <i class="fa fa-user-md"></i>
+  <span id="busuanzi_container_site_uv">访问用户：<span id="busuanzi_value_site_uv"></span>次</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="powered-by">
+  <i class="fa fa-eye" aria-hidden="true"></i>
+  <span id="busuanzi_container_site_uv">访问总量：<span id="busuanzi_value_site_pv"></span>次</span>
+</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+<div class="theme-info">
+  <i class="fa fa-paint-brush" aria-hidden="true"></i>
+  <span class="post-count">博客全站共 102.9k 字</span>
+</div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'Qu6rmVm1gcMYRPyyiWcRJaEH-gzGzoHsz',
+        appKey: 'w40lNEaD5KbJiMUWYExaMFst',
+        placeholder: '撰写评论',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'100' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("Qu6rmVm1gcMYRPyyiWcRJaEH-gzGzoHsz", "w40lNEaD5KbJiMUWYExaMFst");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<!-- 背景动画 -->
+<!-- <script type="text/javascript" src="/js/src/particle.js"></script> -->
+
